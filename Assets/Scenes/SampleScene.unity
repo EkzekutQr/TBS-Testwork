@@ -239,6 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 66548871}
+  - component: {fileID: 66548872}
   m_Layer: 0
   m_Name: EnemyUnit
   m_TagString: Untagged
@@ -261,8 +262,26 @@ Transform:
   m_Children:
   - {fileID: 1674909834}
   - {fileID: 263856836}
+  - {fileID: 1926306742}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &66548872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66548870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 268b365dad11cee4ba58a9d1d4015aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  blockAmount: 0
+  turnCounter: 0
+  abilities: []
 --- !u!1 &87091709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,6 +1569,122 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440457133}
   m_CullTransparentMesh: 1
+--- !u!1 &1471563312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1471563313}
+  - component: {fileID: 1471563318}
+  - component: {fileID: 1471563317}
+  - component: {fileID: 1471563316}
+  - component: {fileID: 1471563315}
+  - component: {fileID: 1471563314}
+  m_Layer: 0
+  m_Name: Abilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1471563313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471563312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868507010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1471563314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471563312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c735f3b6beddb40816047eac468f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 5
+  duration: 3
+  healAmount: 2
+--- !u!114 &1471563315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471563312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce3dc36f6e898349b16b2e52dc4bdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 5
+  duration: 0
+--- !u!114 &1471563316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471563312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a45fb8763d7d974ea80be3d2e6efda8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 6
+  duration: 5
+  initialDamage: 5
+  burnDamage: 1
+--- !u!114 &1471563317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471563312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45d7fa97b5e41c4bbbcdf4bb2c1898a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 4
+  duration: 2
+  blockAmount: 5
+--- !u!114 &1471563318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471563312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0fad544eb703744be57e60651de843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 0
+  duration: 0
+  damage: 8
 --- !u!1 &1674909833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,6 +1890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1868507010}
+  - component: {fileID: 1868507011}
   m_Layer: 0
   m_Name: PlayerUnit
   m_TagString: Untagged
@@ -1777,8 +1913,142 @@ Transform:
   m_Children:
   - {fileID: 29311306}
   - {fileID: 157372162}
+  - {fileID: 1471563313}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1868507011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868507009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fedb5e1c92282fc4ea1d45cb30202478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  blockAmount: 0
+  turnCounter: 0
+  abilities: []
+--- !u!1 &1926306741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1926306742}
+  - component: {fileID: 1926306747}
+  - component: {fileID: 1926306746}
+  - component: {fileID: 1926306745}
+  - component: {fileID: 1926306744}
+  - component: {fileID: 1926306743}
+  m_Layer: 0
+  m_Name: Abilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1926306742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926306741}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 66548871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1926306743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926306741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c735f3b6beddb40816047eac468f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 5
+  duration: 3
+  healAmount: 2
+--- !u!114 &1926306744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926306741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce3dc36f6e898349b16b2e52dc4bdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 5
+  duration: 0
+--- !u!114 &1926306745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926306741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a45fb8763d7d974ea80be3d2e6efda8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 6
+  duration: 5
+  initialDamage: 5
+  burnDamage: 1
+--- !u!114 &1926306746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926306741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45d7fa97b5e41c4bbbcdf4bb2c1898a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 4
+  duration: 2
+  blockAmount: 5
+--- !u!114 &1926306747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926306741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0fad544eb703744be57e60651de843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  cooldownTime: 0
+  duration: 0
+  damage: 8
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
