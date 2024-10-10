@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Barrier : Ability, INonDamagingAbility, IStatusEffectAbility
 {
-    public int blockAmount = 5; // Суммарный блок урона
     [SerializeField] private Color statusEffectIconColor;
+    public int blockAmount = 5; // Суммарный блок урона
 
     public Color StatusEffectIconColor => statusEffectIconColor;
 

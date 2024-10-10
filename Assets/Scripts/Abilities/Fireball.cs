@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Fireball : Ability, IDamagingAbility, IStatusEffectAbility
 {
+    [SerializeField] private Color statusEffectIconColor;
     public int initialDamage = 5; // Начальный урон
     public int burnDamage = 1; // Урон от горения каждый ход
-    [SerializeField] private Color statusEffectIconColor;
 
     public int Damage => initialDamage;
     public Color StatusEffectIconColor => statusEffectIconColor;

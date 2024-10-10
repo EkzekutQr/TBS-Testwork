@@ -13,7 +13,7 @@ public class Purify : Ability, INonDamagingAbility
     {
         if (IsOffCooldown())
         {
-            ApplyEffect(user, target);
+            ApplyEffect(user, user);
             StartCooldown();
         }
     }

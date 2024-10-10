@@ -6,8 +6,9 @@ public abstract class Ability : MonoBehaviour
 {
     public string abilityName;
     public int cooldownTime; // Перезарядка в базовом классе
-    private int currentCooldown;
     public int duration; // Длительность в базовом классе
+
+    private int currentCooldown;
     protected int remainingDuration;
 
     public int CurrentCooldown { get => currentCooldown; set => currentCooldown = value; }

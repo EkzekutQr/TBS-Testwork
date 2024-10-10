@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Regeneration : Ability, INonDamagingAbility, IStatusEffectAbility
 {
-    public int healAmount = 2; // Восстанавливает здоровье
     [SerializeField] private Color statusEffectIconColor;
+    public int healAmount = 2; // Восстанавливает здоровье
 
     public Color StatusEffectIconColor => statusEffectIconColor;
 

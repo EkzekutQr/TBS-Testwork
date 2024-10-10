@@ -10,11 +10,15 @@ public class BattleManager : MonoBehaviour
     public EnemyUnit enemy;
     public UnitHealthBarUI playerHealthBar;
     public UnitHealthBarUI enemyHealthBar;
+    public Button restartButton; // Добавим кнопку перезапуска
+
     private bool playerTurn;
     private ClientManager clientManager;
+    private int turnCounter; // Новый общий счетчик ходов
 
-    void Start()
+    private void Start()
     {
+        turnCounter = 0;
         playerTurn = true;
         clientManager = new ClientManager();
         clientManager.ConnectToServer();
@@ -26,16 +30,18 @@ public class BattleManager : MonoBehaviour
         playerInput.purifyButton.onClick.AddListener(() => PlayerUseAbility(2));
         playerInput.regenerationButton.onClick.AddListener(() => PlayerUseAbility(3));
         playerInput.barrierButton.onClick.AddListener(() => PlayerUseAbility(4));
+        restartButton.onClick.AddListener(RestartBattle); // Привязываем метод к кнопке перезапуска
     }
 
-    void StartBattle()
+    private void StartBattle()
     {
+        turnCounter = 0;
         player.Reset();
         enemy.Reset();
         UpdateUI();
     }
 
-    void Update()
+    private void Update()
     {
         if (!playerTurn)
         {
@@ -62,24 +68,29 @@ public class BattleManager : MonoBehaviour
     public async void EndTurn()
     {
         playerTurn = !playerTurn;
-        player.EndTurn();
-        enemy.EndTurn();
-        UpdateUI();
 
-        if (player.currentHealth <= 0 || enemy.currentHealth <= 0)
+        if (playerTurn)
         {
-            RestartBattle();
-            return;
-        }
+            // Завершаем ход обоих юнитов только после того, как оба сходили
+            turnCounter++;
+            player.EndTurn();
+            enemy.EndTurn();
+            UpdateUI();
 
-        string serverResponse = await clientManager.ReceiveServerResponseAsync();
-        Debug.Log("Ответ сервера: " + serverResponse);
-        ProcessServerResponse(serverResponse);
+            if (player.currentHealth <= 0 || enemy.currentHealth <= 0)
+            {
+                RestartBattle();
+                return;
+            }
+
+            string serverResponse = await clientManager.ReceiveServerResponseAsync();
+            Debug.Log("Ответ сервера: " + serverResponse);
+            ProcessServerResponse(serverResponse);
+        }
     }
 
-    void UpdateUI()
+    private void UpdateUI()
     {
-        // Обновление интерфейса (полоски здоровья, перезарядка способностей и т.д.)
         playerHealthBar.UpdateUI(player.currentHealth);
         enemyHealthBar.UpdateUI(enemy.currentHealth);
         playerInput.UpdateAbilityButtonsUI(player);
@@ -87,7 +98,7 @@ public class BattleManager : MonoBehaviour
         enemyHealthBar.UpdateStatusEffects(enemy.ActiveStatusEffects);
     }
 
-    void ProcessServerResponse(string response)
+    private void ProcessServerResponse(string response)
     {
         string[] data = response.Split(',');
 

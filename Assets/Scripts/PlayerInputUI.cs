@@ -6,15 +6,19 @@ using UnityEngine.UI;
 
 public class PlayerInputUI : MonoBehaviour
 {
-    public Button attackButton;
+    public Button          attackButton;
     public TextMeshProUGUI attackCooldownText;
-    public Button barrierButton;
+
+    public Button          barrierButton;
     public TextMeshProUGUI barrierCooldownText;
-    public Button regenerationButton;
+
+    public Button          regenerationButton;
     public TextMeshProUGUI regenerationCooldownText;
-    public Button fireballButton;
+
+    public Button          fireballButton;
     public TextMeshProUGUI fireballCooldownText;
-    public Button purifyButton;
+
+    public Button          purifyButton;
     public TextMeshProUGUI purifyCooldownText;
 
     public void UpdateAbilityButtonsUI(PlayerUnit player)
@@ -26,7 +30,7 @@ public class PlayerInputUI : MonoBehaviour
         UpdateButtonUI(barrierButton, barrierCooldownText, player.abilities[4]);
     }
 
-    void UpdateButtonUI(Button button, TextMeshProUGUI cooldownText, Ability ability)
+    private void UpdateButtonUI(Button button, TextMeshProUGUI cooldownText, Ability ability)
     {
         if (ability.IsOffCooldown())
         {

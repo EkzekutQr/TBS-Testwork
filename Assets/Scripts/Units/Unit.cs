@@ -11,7 +11,7 @@ public abstract class Unit : MonoBehaviour
 
     [SerializeField] private List<StatusEffect> activeStatusEffects = new List<StatusEffect>(); // Список активных статус-эффектов
 
-    public List<StatusEffect> ActiveStatusEffects { get => activeStatusEffects; set => activeStatusEffects = value; }
+    public List<StatusEffect> ActiveStatusEffects { get => activeStatusEffects; }
 
     public virtual void Start()
     {
@@ -58,14 +58,6 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
-    public void Attack(Unit target)
-    {
-        if (abilities.Length > 0)
-        {
-            abilities[0].Use(this, target); // Применяем первую способность (атака)
-        }
-    }
-
     public void UseAbility(int abilityIndex, Unit target)
     {
         if (abilityIndex >= 0 && abilityIndex < abilities.Length)
@@ -104,10 +96,6 @@ public abstract class Unit : MonoBehaviour
     private void HandleStatusEffect(StatusEffect effect)
     {
         ImpactHealth(effect.Power);
-        Debug.Log(gameObject.name + " эффект " + effect.Type.ToString() + " duration " + effect.Duration);
-
-        //effect.Duration--;
-
     }
     public void EndTurn()
     {

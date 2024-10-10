@@ -4152,8 +4152,8 @@ MonoBehaviour:
   abilityName: 
   cooldownTime: 5
   duration: 3
-  healAmount: 2
   statusEffectIconColor: {r: 0, g: 1, b: 0, a: 0}
+  healAmount: 2
 --- !u!114 &1471563315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4184,9 +4184,9 @@ MonoBehaviour:
   abilityName: 
   cooldownTime: 6
   duration: 5
+  statusEffectIconColor: {r: 1, g: 0.5019608, b: 0, a: 0}
   initialDamage: 5
   burnDamage: 1
-  statusEffectIconColor: {r: 1, g: 0.5019608, b: 0, a: 0}
 --- !u!114 &1471563317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4202,8 +4202,8 @@ MonoBehaviour:
   abilityName: 
   cooldownTime: 4
   duration: 2
-  blockAmount: 5
   statusEffectIconColor: {r: 1, g: 1, b: 0, a: 0}
+  blockAmount: 5
 --- !u!114 &1471563318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4838,6 +4838,7 @@ MonoBehaviour:
   enemy: {fileID: 66548872}
   playerHealthBar: {fileID: 157372163}
   enemyHealthBar: {fileID: 263856837}
+  restartButton: {fileID: 2000382076}
 --- !u!4 &1838971844
 Transform:
   m_ObjectHideFlags: 0
@@ -4963,8 +4964,8 @@ MonoBehaviour:
   abilityName: 
   cooldownTime: 5
   duration: 3
-  healAmount: 2
   statusEffectIconColor: {r: 0, g: 1, b: 0, a: 0}
+  healAmount: 2
 --- !u!114 &1926306744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4995,9 +4996,9 @@ MonoBehaviour:
   abilityName: 
   cooldownTime: 6
   duration: 5
+  statusEffectIconColor: {r: 1, g: 0.5019608, b: 0, a: 0}
   initialDamage: 5
   burnDamage: 1
-  statusEffectIconColor: {r: 1, g: 0.5019608, b: 0, a: 0}
 --- !u!114 &1926306746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5013,8 +5014,8 @@ MonoBehaviour:
   abilityName: 
   cooldownTime: 4
   duration: 2
-  blockAmount: 5
   statusEffectIconColor: {r: 1, g: 1, b: 0, a: 0}
+  blockAmount: 5
 --- !u!114 &1926306747
 MonoBehaviour:
   m_ObjectHideFlags: 0
