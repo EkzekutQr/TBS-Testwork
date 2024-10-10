@@ -20,7 +20,7 @@ public class ClientManager : MonoBehaviour
     void OnApplicationQuit()
     {
         client.Disconnect();
-        Debug.Log("Отключение от сервера.");
+       Debug.Log("Отключение от сервера.");
     }
 
     public void SendAbilityChoice(int abilityIndex, Color effectColor)

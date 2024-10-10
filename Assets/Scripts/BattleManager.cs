@@ -10,13 +10,14 @@ public class BattleManager : MonoBehaviour
     public EnemyUnit enemy;
     public UnitHealthBarUI playerHealthBar;
     public UnitHealthBarUI enemyHealthBar;
-    public Button restartButton; // Добавим кнопку перезапуска
+    public Button restartButton;
+    public Button exitButton;
 
     private bool playerTurn;
     private ClientManager clientManager;
-    private int turnCounter; // Новый общий счетчик ходов
+    private int turnCounter; // Cчетчик ходов
 
-    private void Start()
+    void Start()
     {
         turnCounter = 0;
         playerTurn = true;
@@ -30,7 +31,8 @@ public class BattleManager : MonoBehaviour
         playerInput.purifyButton.onClick.AddListener(() => PlayerUseAbility(2));
         playerInput.regenerationButton.onClick.AddListener(() => PlayerUseAbility(3));
         playerInput.barrierButton.onClick.AddListener(() => PlayerUseAbility(4));
-        restartButton.onClick.AddListener(RestartBattle); // Привязываем метод к кнопке перезапуска
+        restartButton.onClick.AddListener(RestartBattle);
+        exitButton.onClick.AddListener(ExitGame);
     }
 
     private void StartBattle()
@@ -93,7 +95,9 @@ public class BattleManager : MonoBehaviour
     {
         playerHealthBar.UpdateUI(player.currentHealth);
         enemyHealthBar.UpdateUI(enemy.currentHealth);
+
         playerInput.UpdateAbilityButtonsUI(player);
+
         playerHealthBar.UpdateStatusEffects(player.ActiveStatusEffects);
         enemyHealthBar.UpdateStatusEffects(enemy.ActiveStatusEffects);
     }
@@ -128,5 +132,11 @@ public class BattleManager : MonoBehaviour
     public void RestartBattle()
     {
         StartBattle();
+    }
+
+    public void ExitGame()
+    {
+        Debug.Log("Выход из игры");
+        Application.Quit(); // Завершение приложения
     }
 }
