@@ -6,9 +6,11 @@ public abstract class Ability : MonoBehaviour
 {
     public string abilityName;
     public int cooldownTime; // Перезарядка в базовом классе
-    protected int currentCooldown;
+    private int currentCooldown;
     public int duration; // Длительность в базовом классе
     protected int remainingDuration;
+
+    public int CurrentCooldown { get => currentCooldown; set => currentCooldown = value; }
 
     public abstract void Use(Unit user, Unit target);
 
@@ -21,6 +23,10 @@ public abstract class Ability : MonoBehaviour
     {
         if (currentCooldown > 0)
             currentCooldown--;
+    }
+    public void ResetCooldown()
+    {
+        currentCooldown = 0;
     }
 
     public void StartDuration()

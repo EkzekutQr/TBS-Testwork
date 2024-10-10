@@ -5,6 +5,9 @@ using UnityEngine;
 public class Barrier : Ability, INonDamagingAbility, IStatusEffectAbility
 {
     public int blockAmount = 5; // Суммарный блок урона
+    [SerializeField] private Color statusEffectIconColor;
+
+    public Color StatusEffectIconColor => statusEffectIconColor;
 
     public Barrier()
     {
@@ -16,7 +19,7 @@ public class Barrier : Ability, INonDamagingAbility, IStatusEffectAbility
     {
         if (IsOffCooldown())
         {
-            ApplyEffect(user, target);
+            ApplyEffect(user, user);
             StartCooldown();
             StartDuration();
             ApplyStatusEffect(user);
@@ -30,6 +33,6 @@ public class Barrier : Ability, INonDamagingAbility, IStatusEffectAbility
 
     public void ApplyStatusEffect(Unit user)
     {
-        user.AddStatusEffect(new StatusEffect(StatusEffectType.Barrier, duration));
+        user.AddStatusEffect(new StatusEffect(statusEffectIconColor, StatusEffectType.Barrier, duration));
     }
 }

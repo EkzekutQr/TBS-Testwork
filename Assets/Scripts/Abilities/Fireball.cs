@@ -6,14 +6,16 @@ public class Fireball : Ability, IDamagingAbility, IStatusEffectAbility
 {
     public int initialDamage = 5; // Начальный урон
     public int burnDamage = 1; // Урон от горения каждый ход
+    [SerializeField] private Color statusEffectIconColor;
+
+    public int Damage => initialDamage;
+    public Color StatusEffectIconColor => statusEffectIconColor;
 
     public Fireball()
     {
         duration = 5; // Длительность горения
         cooldownTime = 6; // Перезарядка огненного шара
     }
-
-    public int Damage => initialDamage;
 
     public override void Use(Unit user, Unit target)
     {
@@ -32,7 +34,7 @@ public class Fireball : Ability, IDamagingAbility, IStatusEffectAbility
 
     public void ApplyStatusEffect(Unit target)
     {
-        var burnEffect = new StatusEffect(StatusEffectType.Burn, duration, burnDamage);
+        var burnEffect = new StatusEffect(statusEffectIconColor, StatusEffectType.Burn, duration, burnDamage);
         target.AddStatusEffect(burnEffect);
     }
 }

@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IStatusEffectAbility
 {
+    public Color StatusEffectIconColor { get; }
     void ApplyStatusEffect(Unit target);
 }
